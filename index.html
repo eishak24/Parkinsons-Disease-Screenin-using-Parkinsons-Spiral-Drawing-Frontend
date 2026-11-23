@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-Based Parkinson’s Disease Screening Using Spiral Drawing Images</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="badge"><b></b> Deep-learning powered</span>
+      <h1>AI-Based Parkinson’s Disease Screening Using <span class="grad">Spiral Drawing Images</span></h1>
+      <p class="lead">A convolutional neural network analyses the tremor and smoothness of a hand-drawn spiral to flag patterns associated with Parkinson’s disease in seconds, from a single image.</p>
+    </div>
+
+    <div class="visual" aria-label="Animated neural network inside a brain outline">
+      <!-- Optional: drop your own looping video at assets/brain.mp4 and it will blend in automatically -->
+      <video id="bgvid" autoplay muted loop playsinline preload="auto"><source src="assests/brain.mp4" type="video/mp4"></video>
+      <canvas id="brain"></canvas>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="block" id="analyze">
+    <div class="eyebrow">Screening tool</div>
+    <h2>Analyze a spiral drawing</h2>
+    <p class="sub">Upload a clear photo or scan of a hand-drawn spiral. The image is processed locally by the model on this server.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>1 · Upload drawing</h3>
+        <p class="hint">PNG or JPG.Plain background works best.</p>
+        <div id="drop" tabindex="0" role="button" aria-label="Choose an image to upload">
+          <div class="empty" id="empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <b>Drop an image here</b>or click to browse
+          </div>
+          <img id="preview" alt="Uploaded spiral preview">
+        </div>
+        <input type="file" id="file" accept="image/png,image/jpeg" hidden>
+        <div class="actions">
+          <button id="btn" class="btn primary" disabled>Analyze drawing</button>
+          <button id="reset" class="btn ghost" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="card" aria-live="polite">
+        <h3>2 · Result</h3>
+        <p class="hint">Predicted class and probability for each class.</p>
+        <div class="placeholder" id="placeholder">Results will appear here after analysis.</div>
+        <div id="result"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="block" id="about">
+    <div class="eyebrow">About the condition</div>
+    <h2>Why spiral drawings?</h2>
+    <p class="sub">Parkinson’s disease affects dopamine-producing neurons that control movement. Fine motor tasks such as drawing a spiral can reveal early motor changes.</p>
+    <div class="cards3">
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12c2-6 4 6 6 0s4 6 6 0 4 6 6 0"/></svg></div><h3>Tremor</h3><p>Involuntary shaking produces a wavy, uneven line that is hard to see by eye but easy for a CNN to pick up.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16V8m6 8V4m6 12v-6"/></svg></div><h3>Micrographia</h3><p>Handwriting and drawings tend to shrink and tighten as fine motor control declines.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Slowness &amp; stiffness</h3><p>Bradykinesia affects stroke smoothness and spacing between the turns of the spiral.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="disc"><span>⚠️</span><span><strong style="color:#f1deaa">Medical disclaimer:</strong> This is an educational research prototype, not a medical device. It cannot diagnose Parkinson’s disease. If you are concerned about your health, consult a qualified neurologist.</span></div>
+    <div>© <span id="yr"></span> <strong>AI-Based Parkinson’s Disease Screening Using Spiral Drawing Images</strong></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
